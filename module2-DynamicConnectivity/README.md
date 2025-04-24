@@ -53,3 +53,35 @@ Cost model:
 
 ### Path Compression
 
+Make a grandparent parent for all children
+
+Weighted quickunion with path compression
+
+Proposition:<br>
+    Hopcroft-Ulman, Tarjan<br>
+    Starting from an empty data structure, 
+any sequence of M union-find ops on N objects makes 
+<= c( N + M lg* N) array accesses.
+
+lg* N is how many logbase 2 to get to 1.
+
+| N       | lg* N |
+|---------|-------|
+| 1       | 0     |
+| 2       | 1     |
+| 4       | 2     |
+| 16      | 3     |
+| 65_536  | 4     |
+| 2^65536 | 5     |
+
+| algorithm                              | initialize | union | find  |
+|----------------------------------------|------------|-------|-------|
+| quick-find                             | N          | N     | 1     |
+| quick-union                            | N          | N     | N     |
+| quick-union- weighted                  | N          | lg N  | lg N  |
+| quick-union- weighted path compression | N          | lg* N | lg* N |
+
+## Comments
+There is no linear time algorithm (N) for the union find problem.
+
+

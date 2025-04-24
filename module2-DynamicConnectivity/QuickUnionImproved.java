@@ -15,7 +15,12 @@ class QuickUnionImproved{
     }
     private int root(int i){
         // go through every i
-        while(i != id[i]) i = id[i];
+        while(i != id[i]) {
+            // 2nd Improvement Path Compression
+            // Make found root new path!
+            id[i] = id[id[i]];
+            i = id[i];
+        }
 
         return i;
     }
